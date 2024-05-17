@@ -23,7 +23,7 @@ class MarkovMachine {
       let word = this.words[i];
       let nextWord = this.words[i + 1] || null;
 
-      if (chains.has(word)) chains.get(word.push(nextWord));
+      if (chains.has(word)) chains.get(word).push(nextWord);
       else chains.set(word, [nextWord]);
     }
 
@@ -33,7 +33,6 @@ class MarkovMachine {
   static choice(ar) {
     return ar[Math.floor(Math.random() * ar.length)];
   }
-
 
   /** return random text from chains */
 
